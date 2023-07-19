@@ -1,0 +1,53 @@
+1. Create simple app to make api call to fetch list of countries
+https://gist.githubusercontent.com/peymano-wmt/32dcb892b06648910ddd40406e37fdab/raw/db25946fd77c5873b0303b858e861ce724e0dcd0/countries.json
+
+2. Focus on architecture approach
+3. Make sure that code is expandable
+4. Support offline mode
+5. Take care about handling errors
+
+
+
+capital, code, name, region
+MVP / Scalable
+
+Data processing:
+- Networking
+- Storage
+
+MVVM
+View - Jetpack Compose
+ViewModel - Transformation
+Model - Repository
+
+Repository:
+- Flow... emit()
+
+ViewModel
+- StateFlow -> UI view props
+
+Networking
+interface/class impl AppNetworking
+
+CountryAPI
+/get-country
+
+Storage
+SQLite (ROOM) -> Flow<QueryResult>
+
+1. API call failed
+a) Is Internet turned on (prepare)
+b) List cannot be showed :(
+
+2. API call failed, but we have data in storage
+a) Snackbar (with retry)
+
+3. Database query failure
+a) List cannot be showed :(
+
+sealed class Result {
+    SUCCESS
+    FAILURE
+}
+
+
